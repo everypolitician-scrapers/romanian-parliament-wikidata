@@ -8,4 +8,6 @@ names = EveryPolitician::Wikidata.wikipedia_xpath(
   xpath: '//table[.//tr[th[.="Partid"]]]//tr[td]//td[2]//a[not(@class="new")]/@title'
 )
 
-EveryPolitician::Wikidata.scrape_wikidata(names: { ro: names }, output: false)
+by_cat = WikiData::Category.new('Categorie:Deputați români 2012-2016', 'ro').member_titles
+
+EveryPolitician::Wikidata.scrape_wikidata(names: { ro: names | by_cat })
