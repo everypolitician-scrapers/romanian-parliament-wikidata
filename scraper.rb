@@ -8,7 +8,7 @@ ids = EveryPolitician::Wikidata.sparql(query)
 
 names = EveryPolitician::Wikidata.wikipedia_xpath(
   url: 'https://ro.wikipedia.org/wiki/Legislatura_2012-2016_(Camera_Deputaților)',
-  xpath: '//table[.//tr[th[.="Partid"]]]//tr[td]//td[2]//a[not(@class="new")]/@title'
+  xpath: '//table[.//tr[th[contains(.,"Partid")]]]//tr[td]//td[2]//a[not(@class="new")]/@title'
 )
 
 by_cat = WikiData::Category.new('Categorie:Deputați români 2012-2016', 'ro').member_titles
